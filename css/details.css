@@ -1,0 +1,97 @@
+#single-book-details{
+    margin-top: 20px;
+}
+.single-book-item{
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    margin-left: 8%;
+    margin-right: 8%;
+    border-radius: 10px;
+    display: flex;
+    background-color:#FFFFFF;
+}
+.single-book-item img{
+    width: 200px;
+    height: inherit;
+    margin-right: 20px;
+}
+.single-book-item .book-details{
+    padding: 15px;
+    height: 250px;
+}
+.single-book-item .book-details .book-name{
+    color: #000;
+    font-size: 35px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.single-book-item .book-details span{
+    font-weight: 600;
+    font-size: 15px;
+    color: #006621;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.single-book-item .book-details .book-description{
+    padding-top: 10px;
+    color: #808080;
+    margin-left: 5px;
+}
+.single-book-item .book-details .actions{
+    margin-top: 66px;
+}
+/* .single-book-item .book-details .actions .preview{
+    margin-right: 10px;
+} */
+@media (max-width:765px) {
+    .single-book-item img{
+        width: 150px;
+    }
+    .single-book-item .book-details .book-name{
+        color: #000;
+        font-size: 20px;
+    }
+    .single-book-item .book-details .actions{
+        margin-top: 40px;
+    }
+}
+@media (max-width:500px) {
+    .single-book-item img{
+        width: 100px;
+    }
+    .single-book-item .book-details span{
+        font-weight: 600;
+        font-size: 12px;
+    }
+    .single-book-item .book-details .book-name{
+        color: #000;
+        font-size: 18px;
+    }
+    .single-book-item .book-details .book-description{
+       font-size: 15px;
+    }
+    .single-book-item .book-details .actions .btn{
+        margin-top: 20px;
+        font-size: 10px;
+    }
+}
+@media (max-width:400px) {
+    .single-book-item img{
+        width: 100px;
+    }
+    .single-book-item .book-details span{
+        font-weight: 600;
+        font-size: 10px;
+    }
+    .single-book-item .book-details .book-name{
+        color: #000;
+        font-size: 16px;
+    }
+    .single-book-item .book-details .book-description{
+       font-size: 10px;
+    }
+    .single-book-item .book-details .actions .btn{
+        margin-top: 20px;
+        font-size: 10px;
+    }
+}
