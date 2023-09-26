@@ -12,6 +12,7 @@ $count = mysqli_num_rows($runsel);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006621">
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Libraries CSS Files -->
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -22,6 +23,10 @@ $count = mysqli_num_rows($runsel);
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <!--custom css-->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/logo/logo.jpg" type="image/x-icon">
+    <!--manifest -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="img/logo/logo.jpg">
     <title>Home - STALib</title>
 </head>
 <body>
@@ -43,23 +48,52 @@ $count = mysqli_num_rows($runsel);
             $created_at = $row['created_at'];
             ?>
         <div class="book-item">
-          <a href="details.php?id=<?php echo $id;?>">
+          <a href="details?id=<?php echo $id;?>">
             <?php if (empty($dp)) {
-            echo "<img src='img/bg-mobile-fallback.jpg' alt=''>";
+            echo "<img src='img/default.png' alt=''>";
           }else {
             echo "<img src='admin/assets/images/$dp' alt=''>";
           }
             ?>
             <div class="book-details">
               <div class="book-name"><?php echo $title; ?></div>
-              <div class=""><span><?php echo $level. " level"; ?></span> * <span><?php echo $code; ?></span> * <span>31 <i class="fa fa-download"></i></span> * <span>Jan 2023</span> * <span> 200 pages</span></div>
+              <div class=""><span><?php echo $level. " level"; ?></span> * <span><?php echo $code; ?></span> * <span>
+              <?php
+                $bytes = filesize("admin/materials/$material");
+                if ($bytes >= 1073741824)
+                {
+                    echo $bytes = number_format($bytes / 1073741824, 2) . ' GB';
+                }
+                elseif ($bytes >= 1048576)
+                {
+                  echo $bytes = number_format($bytes / 1048576, 2) . ' MB';
+                }
+                elseif ($bytes >= 1024)
+                {
+                  echo $bytes = number_format($bytes / 1024, 2) . ' KB';
+                }
+                elseif ($bytes > 1)
+                {
+                  echo $bytes = $bytes . ' bytes';
+                }
+                elseif ($bytes == 1)
+                {
+                  echo $bytes = $bytes . ' byte';
+                }
+                else
+                {
+                    $bytes = '0 bytes';
+                }
+                ?>
+              </i></span></div>
               <div class="book-description"><div class="book-description"><?php 
                 if (!empty($desc)) {
                   echo $desc;
                 }else{
                   echo "No description given";
                 }
-              ?> </div></div>
+              ?> 
+              </div></div>
             </a>
             </div>
         </div>
@@ -78,5 +112,6 @@ $count = mysqli_num_rows($runsel);
 <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 <script src="lib/lightbox/js/lightbox.min.js"></script>
 <script src="lib/typed/typed.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

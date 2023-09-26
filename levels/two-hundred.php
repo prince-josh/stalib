@@ -47,17 +47,52 @@ $count = mysqli_num_rows($runsel);
             $created_at = $row['created_at'];
             ?>
         <div class="book-item">
-          <a href="../details.php?id=<?php echo $id;?>">
+          <a href="../details?id=<?php echo $id;?>">
             <?php if (empty($dp)) {
-            echo "<img src='../img/bg-mobile-fallback.jpg' alt=''>";
+            echo "<img src='../img/default.png' alt=''>";
           }else {
             echo "<img src='../admin/assets/images/$dp' alt=''>";
           }
             ?>
             <div class="book-details">
               <div class="book-name"><?php echo $title; ?></div>
-              <div class=""><span><?php echo $level. " level"; ?></span> * <span><?php echo $code; ?></span> * <span>31 <i class="fa fa-download"></i></span> * <span>Jan 2023</span> * <span> 200 pages</span></div>
-              <div class="book-description"><?php echo $desc; ?></div>
+              <div class=""><span><?php echo $level. " level"; ?></span> * <span><?php echo $code; ?></span> * <span>
+              <?php
+                $bytes = filesize("../admin/materials/$material");
+                if ($bytes >= 1073741824)
+                {
+                    echo $bytes = number_format($bytes / 1073741824, 2) . ' GB';
+                }
+                elseif ($bytes >= 1048576)
+                {
+                  echo $bytes = number_format($bytes / 1048576, 2) . ' MB';
+                }
+                elseif ($bytes >= 1024)
+                {
+                  echo $bytes = number_format($bytes / 1024, 2) . ' KB';
+                }
+                elseif ($bytes > 1)
+                {
+                  echo $bytes = $bytes . ' bytes';
+                }
+                elseif ($bytes == 1)
+                {
+                  echo $bytes = $bytes . ' byte';
+                }
+                else
+                {
+                    $bytes = '0 bytes';
+                }
+                ?>
+              </i></span></div>
+              <div class="book-description">
+                <?php
+              if (!empty($desc)) {
+                  echo $desc;
+                }else{
+                  echo "No description given";
+                }
+              ?> </div>
             </a>
             </div>
         </div>

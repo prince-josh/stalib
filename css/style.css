@@ -103,3 +103,26 @@ nav .search-form button{
     font-size: 15px;
     color: #808080;
 }
+@media (max-width:500px) {
+    /* .book-item{
+        height: 200px;
+    } */
+    .book-item img{
+        width: 80px;
+        margin-right: 5px;
+    }
+    .book-item .book-details span{
+        font-weight: 600;
+        font-size: 10px;
+    }
+    .book-item .book-details .book-name{
+        font-size: 16px;
+    }
+    .book-item .book-details .book-description{
+       font-size: 10px;
+    }
+    .book-item .book-details .actions .btn{
+        margin-top: 10px;
+        font-size: 10px;
+    }
+}

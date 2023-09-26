@@ -1,0 +1,20 @@
+{
+    "name": "Stalib",
+    "short_name": "Stalib",
+    "start_url": ".",
+    "background_color": "#006621",
+    "theme_color": "#006621",
+    "display": "standalone",
+    "icons":[
+        {
+            "src": "img/logo/logo.jpg",
+            "sizes":"192x192",
+            "types": "images/jpg"
+        },
+        {
+            "src": "img/default.png",
+            "sizes":"512x512",
+            "types": "images/png"
+        }
+    ]
+}
